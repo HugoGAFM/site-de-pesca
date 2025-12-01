@@ -1,0 +1,23 @@
+@startuml
+entity tb_user {
+  *id : INTEGER
+  --
+  nome : TEXT
+  sobrenome : TEXT
+  username : TEXT
+  senha : TEXT
+  role : TEXT
+  email : TEXT
+}
+
+entity tb_pedido {
+  *id : INTEGER
+  --
+  data : DATETIME
+  produto : TEXT
+  preco : REAL
+  user_id : INTEGER
+}
+
+tb_pedido::user_id --> tb_user::id
+@enduml

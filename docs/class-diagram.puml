@@ -1,0 +1,49 @@
+@startuml
+
+package entities {
+  class User {
+    +Long id
+    +String nome
+    +String sobrenome
+    +String username
+    +String password
+    +String role
+    +String email
+  }
+
+  class Pedido {
+    +Long id
+    +LocalDateTime data
+    +String produto
+    +Double preco
+    +User user
+  }
+}
+
+package dto {
+  class PedidoRequest {
+    +String produto
+    +Double preco
+  }
+
+  class LoginRequest {
+    +String username
+    +String password
+  }
+
+  class LoginResponse {
+    +String token
+  }
+}
+
+package controllers {
+  class AuthController
+  class PedidoController
+}
+
+User "1" <-- "*" Pedido : owns
+PedidoController ..> Pedido
+PedidoController ..> PedidoRequest
+AuthController ..> LoginRequest
+AuthController ..> LoginResponse
+@enduml

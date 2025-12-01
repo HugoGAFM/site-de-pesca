@@ -142,28 +142,3 @@ Tokens: armazenados pelo frontend em `localStorage` sob a chave `token`.
 
 ---
 
-## 11. Como gerar o PDF localmente (opcional)
-
-- Recomendado: instalar `pandoc` e `plantuml` para renderizar PlantUML e converter Markdown para PDF.
-- Exemplo (Windows PowerShell):
-```powershell
-# gerar PNGs a partir dos PlantUMLs
-plantuml -tpng docs\class-diagram.puml -o docs
-plantuml -tpng docs\db-diagram.puml -o docs
-
-# converter Markdown para PDF com pandoc (requer LaTeX instalado para PDF):
-pandoc README.md -o README.pdf --from markdown+yaml_metadata_block
-```
-
-Se preferir, eu tento converter aqui se você autorizar que eu rode os comandos no ambiente (só funcionará se as ferramentas estiverem instaladas no seu sistema).
-
----
-
-## 12. Próximos passos sugeridos
-
-- Implementar DTOs de resposta (`PedidoResponse`, `UserSummary`) e mudar controllers para retornar DTOs.
-- Adicionar testes de integração para endpoints importantes (login, criar pedido, listar pedidos).
-- Melhorar tratamento de erros e padronizar respostas de erro (JSON com `code`/`message`).
-
----
-
